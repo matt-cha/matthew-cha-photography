@@ -1,5 +1,17 @@
 @import "tailwindcss";
+@font-face {
+  font-family: "HelveticaCustom";
+  src: url("/fonts/Helvetica.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
+@font-face {
+  font-family: "LeMoresSerif";
+  src: url("/fonts/LE-MORES-COLLECTION-SERIF-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 /* :root {
   --background: #ffffff;
   --foreground: #171717;
