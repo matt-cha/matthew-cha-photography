@@ -1,34 +1,34 @@
 import Image from "next/image";
 import Link from "next/link";
-export default function Home() {
+const Home: React.FC = () => {
   return (
-    <main role="main" className=" bg-white w-full">
+    <main role="main" className="w-full bg-white">
       <section
         aria-label="Main home page image"
-        className="relative w-full h-screen"
+        className="relative h-screen w-full"
       >
         <Image
           src="/images/jj-trees.jpg"
           alt="Couple standing in the middle of orange trees"
-          className="w-full rounded-lg h-auto object-cover object-bottom"
+          className="h-auto w-full rounded-lg object-cover object-bottom"
           fill
           priority
         />
-        <div className="absolute inset-0  bg-gradient-to-b from-black/35 to-transparent z-10" />
-        <div className="absolute inset-0 font-[LeMoresSerif]  flex justify-center top-40 z-20">
-          <div className="text-white text-center ">
-            <h1 className="text-4xl md:text-5xl tracking-wide">
-              Wedding and events photographer<br aria-hidden="true"></br>based
-              in Orange County
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/35 to-transparent" />
+        <div className="absolute inset-0 top-40 z-20 flex justify-center font-[LeMoresSerif]">
+          <div className="text-center text-white">
+            <h1 className="text-4xl tracking-wide md:text-5xl">
+              Wedding and events photographer
+              <br aria-hidden="true"></br>based in Orange County
             </h1>
           </div>
         </div>
       </section>
       <section
         aria-label="Description and photo gallery"
-        className=" w-full px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-20 py-16 flex flex-col items-center text-center space-y-8"
+        className="flex w-full flex-col items-center space-y-8 px-4 py-16 text-center sm:px-6 lg:px-8 xl:px-10 2xl:px-20"
       >
-        <p className="text-base font-[HelveticaCustom] max-w-3xl leading-relaxed">
+        <p className="max-w-3xl font-[HelveticaCustom] text-base leading-relaxed">
           A distinct approach to wedding photography made with personal care for
           each person and an emphasis on each personalized story. The human
           connection is what drives me to deliver timeless photos that display
@@ -37,7 +37,7 @@ export default function Home() {
         <Link
           href="/contact"
           aria-label="Navigate to the contact page"
-          className="border hover:text-green-700 hover:cursor-pointer border-black px-4 py-2 rounded-md"
+          className="rounded-md border border-black px-4 py-2 hover:cursor-pointer hover:text-neutral-600"
         >
           Connect
         </Link>
@@ -48,7 +48,7 @@ export default function Home() {
               width={300}
               height={500}
               alt="Couple standing in front of glass reading a letter, crying"
-              className="rounded-sm object-cover w-full h-auto"
+              className="h-auto w-full rounded-sm object-cover"
             />
           </div>
           <div className="w-full sm:w-[500px] md:w-[700px]">
@@ -57,7 +57,7 @@ export default function Home() {
               width={600}
               height={400}
               alt="Couple standing in front of wall and glass"
-              className="rounded-sm object-cover w-full h-auto"
+              className="h-auto w-full rounded-sm object-cover"
             />
           </div>
           <div className="w-full sm:w-[300px] md:w-[400px]">
@@ -66,11 +66,13 @@ export default function Home() {
               width={300}
               height={500}
               alt="Couple standing on steps"
-              className="rounded-sm object-cover w-full h-auto"
+              className="h-auto w-full rounded-sm object-cover"
             />
           </div>
         </div>
       </section>
     </main>
   );
-}
+};
+
+export default Home;

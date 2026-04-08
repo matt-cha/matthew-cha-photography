@@ -1,110 +1,90 @@
 "use client";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Menu, X } from "lucide-react";
-export default function Header() {
+import { navItems } from "@/data/menu";
+const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const [isMobile, setIsMobile] = useState<boolean | null>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    const handleClick = () => {
+      if (menuRef.current) {
+        setIsMenuOpen(false);
+      }
+    };
+    if (isMenuOpen) {
+      document.addEventListener("mousedown", handleClick);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+    };
+  }, [isMenuOpen]);
 
-  const handleResize = () => {
-    setIsMobile(window.innerWidth < 768);
-  };
   return (
-    <header className=" p-4 shadow-md w-full">
-      <nav className="max-w-[100rem] mx-auto flex justify-between items-center">
+    <header className="container mx-auto w-full py-2 shadow-md sm:py-6">
+      <nav className="mx-auto flex max-w-[100rem] items-center justify-between">
         <h1
-          className="text-4xl font-[LeMoresSerif]"
+          className="font-[LeMoresSerif] text-xl md:text-2xl lg:text-4xl"
           aria-label="Homepage for Matthew Cha Photography"
         >
-          <Link className="hover:text-green-700" href="/">
+          <Link
+            className="inline-block px-2 hover:text-neutral-600 sm:px-0"
+            href="/"
+          >
             Matthew Cha Photography
           </Link>
         </h1>
-        {!isMobile && (
-          <ul className="flex font-[HelveticaCustom] tracking-wide space-x-4">
-            <li>
-              <Link href="/portfolio" className="hover:text-green-700">
-                Portfolio
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="hover:text-green-700">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="hover:text-green-700">
-                Contact
-              </Link>
-            </li>
-          </ul>
-        )}
 
-        {isMobile && (
-          <button
-            aria-label="Open menu"
-            aria-haspopup="true"
-            aria-expanded={isMenuOpen}
-            onClick={() => setIsMenuOpen(true)}
-          >
-            <Menu />
-          </button>
-        )}
+        <ul className="hidden space-x-4 font-[HelveticaCustom] tracking-wide md:flex">
+          {navItems.map((item) => (
+            <li key={item.href}>
+              <Link href={item.href} className="hover:text-neutral-600">
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <button
+          aria-label="Open menu"
+          aria-haspopup="true"
+          aria-expanded={isMenuOpen}
+          onClick={() => setIsMenuOpen(true)}
+          className="flex px-2 md:hidden"
+        >
+          <Menu />
+        </button>
       </nav>
 
-      {isMobile && (
+      {isMenuOpen && (
         <div
+          ref={menuRef}
           role="dialog"
-          aria-modal="true"
           aria-label="Mobile navigation menu"
-          className={`fixed top-0 right-0 h-full w-44 bg-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
-            isMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          className="items-left fixed top-0 left-0 flex h-full w-full flex-col justify-center bg-white"
         >
-          <div className="flex justify-end p-4">
-            <button
-              aria-label="Close menu"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <X aria-hidden="true" />
-            </button>
-          </div>
-          <ul className="flex flex-col font-[HelveticaCustom]">
+          <button
+            className="absolute top-2 right-2"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <X />
+          </button>
+
+          <ul className="flex flex-col items-center text-xl">
             <li>
-              <Link
-                onClick={() => setIsMenuOpen(false)}
-                href="/portfolio"
-                className="hover:text-green-700"
-              >
-                Portfolio
-              </Link>
+              <Link href="/">Home</Link>
             </li>
-            <li>
-              <Link
-                onClick={() => setIsMenuOpen(false)}
-                href="/about"
-                className="hover:text-green-700"
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                onClick={() => setIsMenuOpen(false)}
-                href="/contact"
-                className="hover:text-green-700"
-              >
-                Contact
-              </Link>
-            </li>
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href}>{item.label}</Link>
+              </li>
+            ))}
           </ul>
         </div>
       )}
     </header>
   );
-}
+};
+
+export default Header;
