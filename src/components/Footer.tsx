@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
     >
       <div className="container mx-auto">
         <div className="mx-auto flex max-w-[100rem] flex-col items-center justify-between text-center text-sm sm:flex-row sm:text-left">
-          <div className="relative flex flex-col items-center sm:items-start">
+          <div className="relative flex flex-col items-center sm:items-start md:flex-row">
             <button
               tabIndex={0}
               onClick={copyText}

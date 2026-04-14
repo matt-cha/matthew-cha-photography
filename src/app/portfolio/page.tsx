@@ -1,7 +1,9 @@
-const Contact = () => {
+const Contact: React.FC = () => {
   return (
-    <div className="min-h-screen border border-yellow-400 bg-white px-4 py-8 flex flex-col items-center text-center space-y-6">
-      Porfolio page
+    <div className="flex min-h-screen flex-wrap items-center justify-center space-y-6 border bg-white px-4 py-8 text-center">
+      <a href="https://matthewcha.pixieset.com">
+        Please refer to this website for photos at the moment
+      </a>
     </div>
   );
 };
