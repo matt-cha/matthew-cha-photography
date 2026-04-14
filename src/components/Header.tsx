@@ -22,7 +22,7 @@ const Header: React.FC = () => {
   }, [isMenuOpen]);
 
   return (
-    <header className="container mx-auto w-full py-2 shadow-md sm:py-6">
+    <header className="container mx-auto w-full py-2 sm:py-6">
       <nav className="mx-auto flex max-w-[100rem] items-center justify-between">
         <h1
           className="font-[LeMoresSerif] text-xl md:text-2xl lg:text-4xl"
@@ -62,7 +62,7 @@ const Header: React.FC = () => {
           ref={menuRef}
           role="dialog"
           aria-label="Mobile navigation menu"
-          className="items-left fixed top-0 left-0 flex h-full w-full flex-col justify-center bg-white"
+          className="items-left fixed top-0 left-0 z-50 flex h-full w-full flex-col justify-center bg-white"
         >
           <button
             className="absolute top-2 right-2"

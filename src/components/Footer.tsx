@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Instagram from "@/assets/icons/instagram-logo.svg";
 import { useState, useEffect } from "react";
+import { LINKS } from "@/data/links";
 
 const Footer: React.FC = () => {
   const [textToCopy] = useState(" matthewjhcha@gmail.com");
@@ -30,7 +31,7 @@ const Footer: React.FC = () => {
     >
       <div className="container mx-auto">
         <div className="mx-auto flex max-w-[100rem] flex-col items-center justify-between text-center text-sm sm:flex-row sm:text-left">
-          <div className="relative flex flex-col items-center sm:items-start">
+          <div className="relative flex flex-col items-center sm:items-start md:flex-row">
             <button
               tabIndex={0}
               onClick={copyText}
@@ -55,7 +56,7 @@ const Footer: React.FC = () => {
           </div>
           <div className="">
             <Link
-              href="https://www.instagram.com/matthewchaa/"
+              href={LINKS.instagram}
               className="flex items-center rounded-lg hover:text-neutral-600"
               aria-label="Instagram profile"
             >
