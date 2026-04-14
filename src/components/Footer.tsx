@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Instagram from "@/assets/icons/instagram-logo.svg";
 import { useState, useEffect } from "react";
+import { LINKS } from "@/data/links";
 
 const Footer: React.FC = () => {
   const [textToCopy] = useState(" matthewjhcha@gmail.com");
@@ -55,7 +56,7 @@ const Footer: React.FC = () => {
           </div>
           <div className="">
             <Link
-              href="https://www.instagram.com/matthewchaa/"
+              href={LINKS.instagram}
               className="flex items-center rounded-lg hover:text-neutral-600"
               aria-label="Instagram profile"
             >
