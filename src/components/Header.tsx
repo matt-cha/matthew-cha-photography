@@ -8,16 +8,16 @@ const Header: React.FC = () => {
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleClick = () => {
-      if (menuRef.current) {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
         setIsMenuOpen(false);
       }
     };
     if (isMenuOpen) {
-      document.addEventListener("mousedown", handleClick);
+      document.addEventListener("mousedown", handleClickOutside);
     }
     return () => {
-      document.removeEventListener("mousedown", handleClick);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isMenuOpen]);
 
@@ -73,11 +73,15 @@ const Header: React.FC = () => {
 
           <ul className="flex flex-col items-center text-xl">
             <li>
-              <Link href="/">Home</Link>
+              <Link onClick={() => setIsMenuOpen(false)} href="/">
+                Home
+              </Link>
             </li>
             {navItems.map((item) => (
               <li key={item.href}>
-                <Link href={item.href}>{item.label}</Link>
+                <Link href={item.href} onClick={() => setIsMenuOpen(false)}>
+                  {item.label}
+                </Link>
               </li>
             ))}
           </ul>

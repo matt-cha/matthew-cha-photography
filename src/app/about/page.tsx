@@ -2,9 +2,9 @@ import Image from "next/image";
 
 const About: React.FC = () => {
   return (
-    <div className="my-4` container mx-auto flex w-full flex-col font-[HelveticaCustom] md:flex-row">
-      <div className="flex w-full items-center justify-center md:w-1/2">
-        <div className="p-4">
+    <div className="container mx-auto my-4 flex w-full flex-col py-4 font-[HelveticaCustom] md:flex-row">
+      <div className="flex w-full justify-center md:w-1/2">
+        <div className="">
           <p>
             I&apos;m an Orange County based photographer that started
             documenting trips and everyday life in 2015 and from there moved
@@ -22,14 +22,14 @@ const About: React.FC = () => {
           </p>
         </div>
       </div>
-      <div className="flex items-center justify-center md:w-1/2">
-        <div className="w-full max-w-[500px]">
+      <div className="flex justify-end md:w-1/2">
+        <div className="">
           <Image
             src="/images/mc-mountain.jpg"
             alt="Man standing on top of a mountain"
-            width={500}
+            width={400}
             height={300}
-            className="h-auto w-full rounded-lg object-contain object-bottom"
+            className="rounded-lg object-contain object-bottom"
           />
         </div>
       </div>
