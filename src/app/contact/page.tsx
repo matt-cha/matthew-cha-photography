@@ -167,16 +167,15 @@ const Contact: React.FC = () => {
             className="mx-auto block h-auto rounded-sm object-contain"
           />
         </div>
-        <div className="px-2">
+        <div className="px-4 text-left md:px-0">
           <div>
-            Send me a message and I will get back to you as soon as I can.
+            Send me a message and I will get back to you as soon as I can
           </div>
-          <div>
+          <div className="mt-2">
             If you&apos;d rather contact me directly, you can also send me a
             message at
-            <br />
-            818-438-7010 or matthewjhcha@gmail.com
           </div>
+          <div className="mt-2">818-438-7010 or matthewjhcha@gmail.com</div>
         </div>
       </div>
       <div className="flex w-full md:w-1/2">
@@ -197,7 +196,7 @@ const Contact: React.FC = () => {
                   error={errors[field.name]}
                   required={field.required}
                   type={field.type}
-                  as={field.as}
+                  variant={field.variant}
                 />
               </div>
             ))}
@@ -222,7 +221,7 @@ const Contact: React.FC = () => {
                 If you don&apos;t hear back within a few days, please feel free
                 to send me a message directly at
                 <br />
-                818-438-7010 matthewjhcha@gmail.com
+                818-438-7010 or matthewjhcha@gmail.com
               </div>
             )}
           </div>

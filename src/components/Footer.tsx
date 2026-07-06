@@ -32,29 +32,30 @@ const Footer: React.FC = () => {
       <div className="container mx-auto">
         <div className="mx-auto flex max-w-[100rem] flex-col items-center justify-between text-center text-sm sm:flex-row sm:text-left">
           <div className="relative flex flex-col items-center sm:items-start md:flex-row">
-            <button
-              tabIndex={0}
-              onClick={copyText}
-              onMouseEnter={() => setShowHoverText(true)}
-              onMouseLeave={() => setShowHoverText(false)}
-              className="hover:cursor-pointer"
-              aria-label="Copy email address to clipboard"
-            >
-              matthewjhcha@gmail.com
-            </button>
-
+            <div className="py-2 md:py-0">
+              <button
+                tabIndex={0}
+                onClick={copyText}
+                onMouseEnter={() => setShowHoverText(true)}
+                onMouseLeave={() => setShowHoverText(false)}
+                className="hover:cursor-pointer"
+                aria-label="Copy email address to clipboard"
+              >
+                matthewjhcha@gmail.com
+              </button>
+            </div>
             <p
               aria-live="polite"
-              className={`absolute top-full mt-1 text-xs transition-opacity duration-300 ${textOpacity}`}
+              className={`absolute top-full -mt-1 text-xs transition-opacity duration-300 md:mt-1 ${textOpacity}`}
             >
               {showClickText ? "Email copied" : "Click to copy"}
             </p>
           </div>
 
-          <div aria-label="Copyright information" className="">
-            © 2025 Matthew Cha. All rights reserved.
+          <div aria-label="Copyright information" className="py-2 md:py-0">
+            © 2026 Matthew Cha. All rights reserved.
           </div>
-          <div className="">
+          <div className="py-2 md:py-0">
             <Link
               href={LINKS.instagram}
               className="flex items-center rounded-lg hover:text-neutral-600"

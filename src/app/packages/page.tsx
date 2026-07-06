@@ -3,7 +3,7 @@ import Package from "@/components/Package";
 
 const Packages: React.FC = () => {
   return (
-    <div className="container mx-auto flex min-h-screen flex-col items-center space-y-6 bg-white px-4 py-4 text-center">
+    <div className="container mx-auto flex min-h-screen flex-col items-center space-y-6 bg-white px-4 py-4 text-center md:px-0">
       <div>
         <div className="flex flex-wrap items-center">
           {packages &&
