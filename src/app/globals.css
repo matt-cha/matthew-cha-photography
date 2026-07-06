@@ -12,6 +12,13 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "GaramondPremier";
+  src: url("/fonts/Garamond-Premier-Pro-Display.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 /* :root {
   --background: #ffffff;
   --foreground: #171717;

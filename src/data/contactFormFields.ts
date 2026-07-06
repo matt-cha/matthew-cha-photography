@@ -5,7 +5,7 @@ type ContactFormFieldConfig = {
   label: string;
   required?: boolean;
   type?: "text" | "email" | "tel" | "date";
-  as?: "input" | "textarea";
+  variant?: "input" | "textarea";
 };
 
 export const contactFormFields: ContactFormFieldConfig[] = [
@@ -20,6 +20,6 @@ export const contactFormFields: ContactFormFieldConfig[] = [
     label:
       "Please share any additional information here – vision for your event, vendors you are working with, or a little bit about you and your fiancé!",
     required: true,
-    as: "textarea",
+    variant: "textarea",
   },
 ];

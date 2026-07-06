@@ -36,7 +36,7 @@ const Header: React.FC = () => {
           </Link>
         </h1>
 
-        <ul className="hidden space-x-4 font-[HelveticaCustom] tracking-wide md:flex">
+        <ul className="hidden space-x-4 font-[GaramondPremier] text-xl tracking-wide md:flex">
           {navItems.map((item) => (
             <li key={item.href}>
               <Link href={item.href} className="hover:text-neutral-600">
@@ -62,7 +62,7 @@ const Header: React.FC = () => {
           ref={menuRef}
           role="dialog"
           aria-label="Mobile navigation menu"
-          className="items-left fixed top-0 left-0 z-50 flex h-full w-full flex-col justify-center bg-white"
+          className="items-left fixed top-0 left-0 z-50 flex h-full w-full flex-col justify-center bg-white font-[GaramondPremier]"
         >
           <button
             className="absolute top-2 right-2"
@@ -72,13 +72,13 @@ const Header: React.FC = () => {
           </button>
 
           <ul className="flex flex-col items-center text-xl">
-            <li>
+            <li className="my-2">
               <Link onClick={() => setIsMenuOpen(false)} href="/">
                 Home
               </Link>
             </li>
             {navItems.map((item) => (
-              <li key={item.href}>
+              <li className="my-2" key={item.href}>
                 <Link href={item.href} onClick={() => setIsMenuOpen(false)}>
                   {item.label}
                 </Link>
