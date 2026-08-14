@@ -1,45 +1,29 @@
 @import "tailwindcss";
-@font-face {
-  font-family: "HelveticaCustom";
-  src: url("/fonts/Helvetica.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "LeMoresSerif";
-  src: url("/fonts/LE-MORES-COLLECTION-SERIF-Regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "GaramondPremier";
-  src: url("/fonts/Garamond-Premier-Pro-Display.otf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-gilda: var(--font-gilda-display);
+  --font-garamond: var(--font-garamond-premier);
+  --font-libre: var(--font-libre-franklin);
+  --font-cormorant: var(--font-cormorant-garamond);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scrollbar-gutter: stable;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-} */
+@supports not (scrollbar-gutter: stable) {
+  html {
+    overflow-y: scroll;
+  }
+}
+
+:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 3px;
+}
