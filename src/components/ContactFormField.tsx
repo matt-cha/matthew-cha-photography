@@ -7,6 +7,7 @@ type ContactFormFieldProps = {
   required?: boolean;
   type?: "text" | "email" | "tel" | "date";
   variant?: "input" | "textarea";
+  autoComplete?: string;
 };
 
 export const ContactFormField = ({
@@ -18,7 +19,10 @@ export const ContactFormField = ({
   required = false,
   type = "text",
   variant = "input",
+  autoComplete,
 }: ContactFormFieldProps) => {
+  const errorId = `${name}-error`;
+
   return (
     <div className="flex flex-col">
       <label className="text-left" htmlFor={name}>
@@ -36,6 +40,9 @@ export const ContactFormField = ({
           onChange={onChange}
           required={required}
           rows={4}
+          autoComplete={autoComplete}
+          aria-invalid={error ? "true" : "false"}
+          aria-describedby={error ? errorId : undefined}
         ></textarea>
       )}
       {variant === "input" && (
@@ -47,10 +54,17 @@ export const ContactFormField = ({
           name={name}
           required={required}
           type={type}
+          autoComplete={autoComplete}
+          aria-invalid={error ? "true" : "false"}
+          aria-describedby={error ? errorId : undefined}
         ></input>
       )}
 
-      {error && <p className="text-left text-sm text-red-500">{error}</p>}
+      {error && (
+        <p id={errorId} className="text-left text-sm text-red-500">
+          {error}
+        </p>
+      )}
     </div>
   );
 };

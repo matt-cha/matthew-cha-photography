@@ -1,13 +1,14 @@
 "use client";
+
 import Link from "next/link";
 import Instagram from "@/assets/icons/instagram-logo.svg";
 import { useState, useEffect } from "react";
 import { LINKS } from "@/data/links";
+import ScrollToTopButton from "./ScrollToTop";
 
-const Footer: React.FC = () => {
-  const [textToCopy] = useState(" matthewjhcha@gmail.com");
-  const [showClickText, setShowClickText] = useState<boolean>(false);
-  const [showHoverText, setShowHoverText] = useState<boolean>(false);
+const Footer = () => {
+  const [showClickText, setShowClickText] = useState(false);
+  const [showHoverText, setShowHoverText] = useState(false);
 
   useEffect(() => {
     if (showClickText) {
@@ -16,32 +17,33 @@ const Footer: React.FC = () => {
     }
   }, [showClickText]);
 
-  const copyText = () => {
-    navigator.clipboard.writeText(textToCopy);
-    setShowClickText(true);
+  const copyText = async () => {
+    try {
+      await navigator.clipboard.writeText(LINKS.email);
+      setShowClickText(true);
+    } catch {
+      setShowClickText(false);
+    }
   };
 
   const textOpacity =
     showClickText || showHoverText ? "opacity-100" : "opacity-0";
 
   return (
-    <footer
-      aria-labelledby="footer-heading"
-      className="w-full bg-gray-100 py-4 font-[HelveticaCustom] tracking-wide"
-    >
-      <div className="container mx-auto">
+    <footer className="relative w-full bg-gray-100 py-4 font-libre tracking-wide">
+      <div className="container mx-auto w-full px-4 md:px-0">
         <div className="mx-auto flex max-w-[100rem] flex-col items-center justify-between text-center text-sm sm:flex-row sm:text-left">
           <div className="relative flex flex-col items-center sm:items-start md:flex-row">
             <div className="py-2 md:py-0">
               <button
-                tabIndex={0}
+                type="button"
                 onClick={copyText}
                 onMouseEnter={() => setShowHoverText(true)}
                 onMouseLeave={() => setShowHoverText(false)}
                 className="hover:cursor-pointer"
                 aria-label="Copy email address to clipboard"
               >
-                matthewjhcha@gmail.com
+                {LINKS.email}
               </button>
             </div>
             <p
@@ -53,13 +55,15 @@ const Footer: React.FC = () => {
           </div>
 
           <div aria-label="Copyright information" className="py-2 md:py-0">
-            © 2026 Matthew Cha. All rights reserved.
+            © {new Date().getFullYear()} Matthew Cha. All rights reserved.
           </div>
           <div className="py-2 md:py-0">
             <Link
               href={LINKS.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center rounded-lg hover:text-neutral-600"
-              aria-label="Instagram profile"
+              aria-label="Matthew Cha on Instagram"
             >
               <Instagram className="mr-1 w-6" aria-hidden="true" />
               matthewchaa
@@ -67,7 +71,9 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
+      <ScrollToTopButton />
     </footer>
   );
 };
+
 export default Footer;
