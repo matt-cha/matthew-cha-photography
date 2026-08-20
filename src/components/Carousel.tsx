@@ -11,7 +11,7 @@ import {
   type TransitionEvent,
 } from "react";
 import CarouselSlide from "./CarouselSlide";
-import NavArrowButton from "./NavArrowButton";
+import ImageNavigationControls from "./ImageNavigationControls";
 import { handleArrowKeyNavigation } from "@/lib/keyboardNavigation";
 type CarouselProps = {
   images: PortfolioImage[];
@@ -145,6 +145,9 @@ const Carousel = ({ images }: CarouselProps) => {
     });
   };
 
+  const currentImageNumber =
+    (((slideIndex % images.length) + images.length) % images.length) + 1;
+
   return (
     <div
       tabIndex={0}
@@ -185,10 +188,12 @@ const Carousel = ({ images }: CarouselProps) => {
           ))}
         </div>
       </div>
-      <div className="flex w-full justify-center">
-        <NavArrowButton direction="previous" onClick={goToPrevious} />
-        <NavArrowButton direction="next" onClick={goToNext} />
-      </div>
+      <ImageNavigationControls
+        current={currentImageNumber}
+        total={images.length}
+        onPrevious={goToPrevious}
+        onNext={goToNext}
+      />
     </div>
   );
 };

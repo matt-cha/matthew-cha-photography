@@ -4,13 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { navItems } from "@/data/menu";
+import { isCurrentPath, navItems } from "@/data/menu";
 import { useDialog } from "@/lib/useDialog";
-
-const isCurrentPath = (pathname: string, href: string) =>
-  href === "/"
-    ? pathname === "/"
-    : pathname === href || pathname.startsWith(`${href}/`);
 
 const Header = () => {
   const pathname = usePathname();

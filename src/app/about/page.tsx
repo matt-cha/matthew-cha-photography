@@ -1,24 +1,24 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import InquireCta from "@/components/InquireCta";
 import PageHeading from "@/components/PageHeading";
 
 const About = () => {
   return (
-    <div className="container mx-auto flex w-full flex-col px-4 py-10 font-libre md:px-0">
+    <div className="font-libre container mx-auto flex w-full flex-col px-4 py-10 md:px-0">
       <PageHeading>About</PageHeading>
       <div className="flex w-full flex-col lg:flex-row">
         <div className="flex justify-center lg:w-2/5 lg:items-start">
           <Image
             src="/images/mc-wall.jpg"
-            alt="Man in front of a grey wall"
+            alt="Matthew Cha, Orange County wedding photographer"
             width={2400}
             height={1600}
             sizes="(min-width: 1024px) 40vw, 100vw"
             className="h-auto w-auto max-w-full rounded"
           />
         </div>
-        <div className="flex w-full justify-center pb-4 font-cormorant text-xl lg:w-3/5 lg:pr-0 lg:pb-0 lg:pl-10">
+        <div className="font-cormorant flex w-full justify-center pb-4 text-xl lg:w-3/5 lg:pr-0 lg:pb-0 lg:pl-10">
           <div>
             <p>
               I&apos;m an Orange County based photographer that started
@@ -53,13 +53,7 @@ const About = () => {
               photos at national parks. Yosemite and Zion are some of my
               favorite places to visit!
             </p>
-            <Link
-              href="/contact"
-              aria-label="Navigate to the contact page"
-              className="my-4 rounded-md border border-black px-4 py-2 hover:cursor-pointer hover:border-neutral-600 hover:text-neutral-600"
-            >
-              Get in touch
-            </Link>
+            <InquireCta className="my-4" />
           </div>
         </div>
       </div>

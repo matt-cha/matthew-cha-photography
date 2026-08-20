@@ -24,6 +24,7 @@ type ContactFormFieldConfig = {
   type?: "text" | "email" | "tel" | "date";
   variant?: "input" | "textarea";
   autoComplete?: string;
+  helperText?: string;
 };
 
 export const contactFormFields: ContactFormFieldConfig[] = [
@@ -57,8 +58,8 @@ export const contactFormFields: ContactFormFieldConfig[] = [
   },
   {
     name: "message",
-    label:
-      "Please share any additional information here – vision for your event, vendors you are working with, or a little bit about you and your fiancé!",
+    label: "Your message",
+    helperText: "Vision, vendors, or a bit about you and your partner.",
     required: true,
     variant: "textarea",
   },
