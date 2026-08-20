@@ -9,3 +9,8 @@ export const navItems: NavItem[] = [
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
+
+export const isCurrentPath = (pathname: string, href: string) =>
+  href === "/"
+    ? pathname === "/"
+    : pathname === href || pathname.startsWith(`${href}/`);

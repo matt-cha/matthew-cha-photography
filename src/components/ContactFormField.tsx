@@ -4,6 +4,7 @@ type ContactFormFieldProps = {
   value: string;
   onChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
   error?: string;
+  helperText?: string;
   required?: boolean;
   type?: "text" | "email" | "tel" | "date";
   variant?: "input" | "textarea";
@@ -16,12 +17,20 @@ export const ContactFormField = ({
   value,
   onChange,
   error,
+  helperText,
   required = false,
   type = "text",
   variant = "input",
   autoComplete,
 }: ContactFormFieldProps) => {
   const errorId = `${name}-error`;
+  const helperId = `${name}-helper`;
+  const describedBy = [
+    helperText ? helperId : undefined,
+    error ? errorId : undefined,
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <div className="flex flex-col">
@@ -31,6 +40,11 @@ export const ContactFormField = ({
           <span className="ml-1 text-sm text-gray-600">(required)</span>
         )}
       </label>
+      {helperText && (
+        <p id={helperId} className="mb-1 text-left text-sm text-gray-600">
+          {helperText}
+        </p>
+      )}
       {variant === "textarea" && (
         <textarea
           id={name}
@@ -42,7 +56,7 @@ export const ContactFormField = ({
           rows={4}
           autoComplete={autoComplete}
           aria-invalid={error ? "true" : "false"}
-          aria-describedby={error ? errorId : undefined}
+          aria-describedby={describedBy || undefined}
         ></textarea>
       )}
       {variant === "input" && (
@@ -56,7 +70,7 @@ export const ContactFormField = ({
           type={type}
           autoComplete={autoComplete}
           aria-invalid={error ? "true" : "false"}
-          aria-describedby={error ? errorId : undefined}
+          aria-describedby={describedBy || undefined}
         ></input>
       )}
 

@@ -10,8 +10,8 @@ import {
   type RenderImageProps,
 } from "react-photo-album";
 import "react-photo-album/rows.css";
-import NavArrowButton from "./NavArrowButton";
 import GalleryItem from "./GalleryItem";
+import ImageNavigationControls from "./ImageNavigationControls";
 import { handleArrowKeyNavigation } from "@/lib/keyboardNavigation";
 import { useDialog } from "@/lib/useDialog";
 
@@ -160,25 +160,17 @@ const Gallery = ({ images, contained = true }: GalleryProps) => {
               width={selectedImage.width}
               height={selectedImage.height}
               sizes="90vw"
-              className="max-h-[80vh] w-auto max-w-full object-contain"
+              className="max-h-[85vh] w-auto max-w-full object-contain"
             />
-            <div className="flex items-center justify-center gap-4 text-white">
-              <NavArrowButton
-                direction="previous"
-                onClick={goToPrevious}
-                disabled={isFirstImage}
-                className="hover:text-neutral-600"
-              />
-              <p className="min-w-[4.5rem] text-center font-libre text-xs tracking-wide uppercase">
-                {(selectedIndex ?? 0) + 1} / {images.length}
-              </p>
-              <NavArrowButton
-                direction="next"
-                onClick={goToNext}
-                disabled={isLastImage}
-                className="hover:text-neutral-600"
-              />
-            </div>
+            <ImageNavigationControls
+              current={(selectedIndex ?? 0) + 1}
+              total={images.length}
+              onPrevious={goToPrevious}
+              onNext={goToNext}
+              previousDisabled={isFirstImage}
+              nextDisabled={isLastImage}
+              className="text-white"
+            />
           </div>
         </div>
       )}

@@ -68,7 +68,9 @@ const ContactPageContent = () => {
 
     const endpoint = process.env.NEXT_PUBLIC_FORMSPREE_POST;
     if (!endpoint) {
-      setSubmitError("Form is not configured");
+      setSubmitError(
+        "The form isn't available right now. Please call, text, or email me instead.",
+      );
       return;
     }
 
@@ -115,22 +117,22 @@ const ContactPageContent = () => {
   return (
     <div className="container mx-auto mb-10 flex w-full flex-col space-y-6 bg-white px-4 py-10 text-center md:px-0">
       <PageHeading>Contact</PageHeading>
-      <div className="flex w-full justify-center font-cormorant text-2xl">
+      <div className="font-cormorant flex w-full justify-center text-2xl">
         <div>
           <div>
             Please feel free to share a few details below about who you are and
             what you&apos;re looking for and I will be in touch!
           </div>
           <div className="mt-2">
-            If you&apos;d rather contact me directly, you can also send me a
-            message at{" "}
+            If you&apos;d rather reach me directly, you can call or text{" "}
             <a href={contactHrefs.phone} className="hover:text-neutral-600">
               {LINKS.phone}
             </a>{" "}
-            or{" "}
+            or email{" "}
             <a href={contactHrefs.email} className="hover:text-neutral-600">
               {LINKS.email}
             </a>
+            .
           </div>
         </div>
       </div>
@@ -152,7 +154,7 @@ const ContactPageContent = () => {
         <div className="flex w-full md:w-2/5">
           <form
             noValidate
-            className="relative font-cormorant"
+            className="font-cormorant relative w-full"
             onSubmit={handleSubmit}
           >
             <div
@@ -188,6 +190,7 @@ const ContactPageContent = () => {
                     type={field.type}
                     variant={field.variant}
                     autoComplete={field.autoComplete}
+                    helperText={field.helperText}
                   />
                 </div>
               ))}
@@ -207,23 +210,22 @@ const ContactPageContent = () => {
               )}
               {success && (
                 <div role="status" className="mt-4 text-left">
-                  Your message has been sent and I will respond as soon as I
-                  can! If you don&apos;t hear back within a few days, please
-                  feel free to send me a message directly at
-                  <br />
+                  Your message has been sent. I typically reply within a few
+                  days. If you don&apos;t hear back, please call or text{" "}
                   <a
                     href={contactHrefs.phone}
                     className="hover:text-neutral-600"
                   >
                     {LINKS.phone}
                   </a>{" "}
-                  or{" "}
+                  or email{" "}
                   <a
                     href={contactHrefs.email}
                     className="hover:text-neutral-600"
                   >
                     {LINKS.email}
                   </a>
+                  .
                 </div>
               )}
             </div>

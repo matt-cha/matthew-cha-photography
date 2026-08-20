@@ -8,7 +8,7 @@ Copy `.env.example` to `.env.local` and fill in the values:
 cp .env.example .env.local
 ```
 
-- `NEXT_PUBLIC_SITE_URL` — your live domain (used for metadata, sitemap, robots, and JSON-LD). Defaults to `http://localhost:3000`.
+- `NEXT_PUBLIC_SITE_URL` — your live domain (used for metadata, sitemap, robots, and JSON-LD). Set this to `https://matthewchaphotography.vercel.app` in Vercel. Defaults to `http://localhost:3000` locally.
 - `NEXT_PUBLIC_FORMSPREE_POST` — Formspree endpoint for the contact form.
 - `PACKAGES_PASSWORD` / `PACKAGES_AUTH_TOKEN` — password gate for `/packages`.
 

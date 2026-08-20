@@ -7,6 +7,7 @@ import {
   getFeaturedGalleryImages,
 } from "@/data/featuredGalleries";
 import Gallery from "@/components/Gallery";
+import InquireCta from "@/components/InquireCta";
 import PageHeading from "@/components/PageHeading";
 import { MoveLeft } from "lucide-react";
 import Link from "next/link";
@@ -65,7 +66,7 @@ const FeaturedGalleryPage = async ({ params }: PageProps) => {
   const images = getFeaturedGalleryImages(gallery);
 
   return (
-    <div className="container mx-auto flex w-full flex-col px-4 py-10 font-libre md:px-0">
+    <div className="font-libre container mx-auto flex w-full flex-col px-4 py-10 md:px-0">
       <Link
         className="mb-6 inline-flex h-4 items-center gap-2 text-xs leading-none whitespace-nowrap uppercase hover:text-neutral-600"
         href="/portfolio"
@@ -76,6 +77,7 @@ const FeaturedGalleryPage = async ({ params }: PageProps) => {
       </Link>
       <PageHeading>{gallery.title}</PageHeading>
       <Gallery images={images} contained={false} />
+      <InquireCta variant="section" />
     </div>
   );
 };
