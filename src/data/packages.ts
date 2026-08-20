@@ -62,7 +62,7 @@ export const packages: PackageItem[] = [
   {
     id: 4,
     title: "Engagement Session",
-    imageId: 89, // josh-jessica-lion-dance-2
+    imageId: 52, // jake-jenny-engagement-hills
     price: 500,
     description:
       "Engagement sessions are a relaxed, personal shoot to preview your wedding-day photography, build rapport with the photographer, and help you feel comfortable in front of the camera.",
@@ -75,7 +75,7 @@ export const packages: PackageItem[] = [
   {
     id: 5,
     title: "Extra Hour of Coverage",
-    imageId: 6, // megan-nathan-glass
+    imageId: 73, // ryan-jessica-send-off
     price: 400,
     description:
       "Extra hours can be added on the wedding day if you need more time for coverage — perfect for extended receptions, extra portraits, or travel between locations.",

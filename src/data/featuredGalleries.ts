@@ -36,7 +36,7 @@ export const featuredGalleries: FeaturedGallery[] = [
   {
     slug: "josh-jessica-wedding",
     title: "Josh & Jessica Wedding",
-    coverImageId: 78, // josh-jessica-portrait
+    coverImageId: 82, // josh-jessica-portrait
     imageIds: [
       74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91,
       92, 93,
