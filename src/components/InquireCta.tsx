@@ -7,7 +7,7 @@ type InquireCtaProps = {
 };
 
 const buttonClassName =
-  "inline-block rounded-md border border-black px-4 py-2 font-libre text-xs tracking-wide uppercase hover:border-neutral-600 hover:text-neutral-600";
+  "inline-block w-fit rounded-md border border-black px-4 py-2 font-libre text-xs tracking-wide uppercase hover:border-neutral-600 hover:text-neutral-600";
 
 const InquireCta = ({
   className = "",
